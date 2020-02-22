@@ -34,7 +34,15 @@ class BinrayCalculatorTest {
     }
 
     @Test
-    void binaryDivide() {
+    void binaryDivide() throws DivisonByZeroException {
         assertEquals("11", calculator.binaryDivide("1001","11"));
+    }
+
+    @Test
+    void divisionByZero(){
+        assertThrows(DivisonByZeroException.class, () ->
+        {
+            calculator.binaryDivide("1", "0" );
+        });
     }
 }
